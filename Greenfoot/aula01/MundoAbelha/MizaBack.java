@@ -1,27 +1,26 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Esta é uma classe que representará uma Abelha
+ * Write a description of class MizaBack here.
  * 
- * @author Mizael Silva
- * @version 2025-06-04
+ * @author (your name) 
+ * @version (a version number or a date)
  */
-public class Abelha extends Actor
+public class MizaBack extends Actor
 {
     /**
-     * Act - do whatever the Abelha wants to do. This method is called whenever
+     * Act - do whatever the MizaBack wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        // Add your action code here.
-        move(1);
+        // Add your action comovede here.
+        move(2);
         if (Greenfoot.isKeyDown("left")){
             turn(-5);
         }
         if (Greenfoot.isKeyDown("right")){
             turn(5);
         }
-
     }
 }
