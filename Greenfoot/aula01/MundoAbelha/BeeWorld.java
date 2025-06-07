@@ -54,12 +54,15 @@ public class BeeWorld extends World
         removeObject(mosca6);
         removeObject(mosca2);
         removeObject(mosca9);
-        mosca.setLocation(291,157);
-        MizaBack mizaBack = new MizaBack();
-        addObject(mizaBack,624,440);
+        mosca.setLocation(291,157);      
         Duke duke = new Duke();
         addObject(duke,926,93);
-        removeObject(mizaBack);
         duke.setLocation(981,581);
+        mosca7.setLocation(29,338);
+        mosca4.setLocation(29,458);
+        abelha.setLocation(32,135);
+        mosca.setLocation(30,272);
+        mosca3.setLocation(32,389);
+        mosca5.setLocation(40,528);
     }
 }

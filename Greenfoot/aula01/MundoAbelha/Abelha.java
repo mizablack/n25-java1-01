@@ -8,6 +8,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Abelha extends Actor
 {
+    //Definindo os fields
+    int vidas;
+    int score;
+    int PONTOS = 100;
+    //Definindo o constructor
+    /**
+     * Constructor da Classe Abelha.
+     */
+    public Abelha(){
+       vidas = 3;
+       score = 0;
+       
+    }
     /**
      * Act - do whatever the Abelha wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -22,6 +35,103 @@ public class Abelha extends Actor
         if (Greenfoot.isKeyDown("right")){
             turn(5);
         }
-
+        verificarPosiçao();
+        capturarMosca();
+        serCapturadoPelaAranha();
+  }
+     /** 
+      * Método que verifica a posição da abelha.
+      */
+    public void verificarPosiçao(){
+    if  (estaNoTopo()){
+             setLocation(getX(), getWorld(). getHeight()-10);
+     }
+    if (estaNaBase()){
+        setLocation(getX(), 10);
     }
+    if (estaNaDireita()){
+        setLocation(10, getY());
+    }
+    if (estaNaEsquerda()){
+        setLocation(getWorld(). getWidth()-10, getY());
+    }
+  }
+  /**
+   * Metodo que verifica se abelha no topo.
+   */
+   public boolean estaNoTopo(){
+       if  (getY()<10){
+           return true;
+       }  else {
+           return false;
+       }
+
+   }
+  /**
+   * método que verifica a abelha esta na base.
+   */
+   public boolean estaNaBase(){
+       return getY()>getWorld() .getHeight()-10;
+   }
+   /**
+    * Método que verifica se a abelha esta na esquerda.
+    */
+   public boolean estaNaEsquerda(){
+       return getX()>10;
+   }
+   /**
+    * metodo que verifica se a abelha esta a direita.
+    */
+    public boolean estaNaDireita(){
+        return getX()>getWorld() .getWidth()-10;
+    }
+    
+    public void capturarMosca(){
+        if (isTouching(Mosca.class)){
+            removeTouching(Mosca.class);
+            Greenfoot.playSound("slurp.wav");
+            atualizarScore();
+            // vai de 1 800
+            int posX = Greenfoot.getRandomNumber(
+                           getWorld().getWidth()) + 1;
+            // vai de 1 600
+            int posY = Greenfoot.getRandomNumber(
+                           getWorld(). getHeight())+ 1;
+                           
+             Mosca mosca = new Mosca();
+             
+             getWorld() .addObject(mosca, posX, posY);
+        }
+    }
+    
+    public void capturadoMosca2(){
+        Actor mosca = getOneIntersectingObject(Mosca.class);
+    }
+    
+    public void serCapturadoPelaAranha(){
+        if (isTouching(Aranha.class)){
+          // vai de 1 800
+            int posX = Greenfoot.getRandomNumber(
+                           getWorld().getWidth()) + 1;
+            // vai de 1 600
+            int posY = Greenfoot.getRandomNumber(
+                           getWorld(). getHeight())+ 1;
+            setLocation(posX, posY);
+            Greenfoot.playSound("ouchi.way");
+            vidas--;// vidas = vidas - 1
+            if(vidas<=0){
+                getWorld().showText("GAME OVER", 400, 300);
+                Greenfoot.stop();
+            
+        }
+    }
+  }
+  
+  public void atualizarScore(){
+     score += PONTOS; //score = score + PONTOS 
+     getWorld().showText("Score:" + score, 200, 50);
+     
+  }
 }
+  
+
