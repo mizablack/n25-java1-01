@@ -9,16 +9,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Abelha extends Actor
 {
     //Definindo os fields
-    int vidas;
-    int score;
-    int PONTOS = 100;
+    private int vidas;
+    private int score;
+    private int PONTOS = 100;
+    private int indice;
+    private GreenfootImage imgs[];
     //Definindo o constructor
     /**
      * Constructor da Classe Abelha.
      */
     public Abelha(){
-       vidas = 3;
+       vidas = 3;// vai ter 3 vidas
        score = 0;
+       //GreenfootImage img = new GreenfootImage("bee01.png");
+       //setImage(img);
+       indice = 0;
+       imgs = new GreenfootImage[4]; //Definimdo vetor de 4 posições
+       
+       for (int i=0; i<4 ; i++){
+           imgs[i] = new GreenfootImage("bee0" + (i+1) +".png");
+           
+       }
+       setImage(imgs[indice]);
+       
        
     }
     /**
@@ -35,14 +48,15 @@ public class Abelha extends Actor
         if (Greenfoot.isKeyDown("right")){
             turn(5);
         }
-        verificarPosiçao();
+        verificarPosicao();
         capturarMosca();
         serCapturadoPelaAranha();
+        animarAbelha();
   }
      /** 
       * Método que verifica a posição da abelha.
       */
-    public void verificarPosiçao(){
+    public void verificarPosicao(){
     if  (estaNoTopo()){
              setLocation(getX(), getWorld(). getHeight()-10);
      }
@@ -77,7 +91,7 @@ public class Abelha extends Actor
     * Método que verifica se a abelha esta na esquerda.
     */
    public boolean estaNaEsquerda(){
-       return getX()>10;
+       return getX()<10;
    }
    /**
     * metodo que verifica se a abelha esta a direita.
@@ -98,7 +112,8 @@ public class Abelha extends Actor
             int posY = Greenfoot.getRandomNumber(
                            getWorld(). getHeight())+ 1;
                            
-             Mosca mosca = new Mosca();
+             Mosca mosca = new Mosca(
+             Greenfoot.getRandomNumber(3) + 1, Greenfoot.getRandomNumber(360) );
              
              getWorld() .addObject(mosca, posX, posY);
         }
@@ -117,7 +132,7 @@ public class Abelha extends Actor
             int posY = Greenfoot.getRandomNumber(
                            getWorld(). getHeight())+ 1;
             setLocation(posX, posY);
-            Greenfoot.playSound("ouchi.way");
+            Greenfoot.playSound("ouch.wav");
             vidas--;// vidas = vidas - 1
             if(vidas<=0){
                 getWorld().showText("GAME OVER", 400, 300);
@@ -129,8 +144,13 @@ public class Abelha extends Actor
   
   public void atualizarScore(){
      score += PONTOS; //score = score + PONTOS 
-     getWorld().showText("Score:" + score, 200, 50);
+     getWorld().showText("Score:" + score, 200, 10);
      
+  }
+  
+  public void animarAbelha(){
+       indice = (indice + 1) % 4;
+       setImage(imgs[indice]);
   }
 }
   
