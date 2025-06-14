@@ -1,0 +1,20 @@
+package br.com.senaisp.bauru.aula04;
+
+import java.util.Scanner;
+
+public class Exercici01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner scan = new Scanner(Sytem.in);
+        System.out.println("Digite seu nome completo");
+        String nome = scan.nextLine();
+        // exemplo: Robertoda silva sauro
+        
+        String priNome = nome.substring(0,nome.indexOf(""));
+        
+        	
+        
+	}
+
+}
