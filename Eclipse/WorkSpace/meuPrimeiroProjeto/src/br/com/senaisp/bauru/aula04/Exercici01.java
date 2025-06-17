@@ -19,6 +19,7 @@ public class Exercici01 {
         System.out.println(priNome);
         System.out.println(ultNome);
         
+        scan.close();
         	
         
 	}

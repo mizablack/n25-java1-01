@@ -1,0 +1,18 @@
+package br.com.senaisp.bauru.aula05;
+
+import java.util.Scanner;
+
+public class Exemplo03 {
+
+	public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in);
+    scan.useDelimiter("/");// MUdando o delimitador para barra
+    System.out.println("Digite sua data de nascimento: ");
+    int dia = scan.nextInt();
+    int mes = scan.nextInt();
+    int ano = scan.nextInt();
+    System.out.println("voce tem " + (2025- ano) + "anos");
+    scan.close();
+	}
+
+}
