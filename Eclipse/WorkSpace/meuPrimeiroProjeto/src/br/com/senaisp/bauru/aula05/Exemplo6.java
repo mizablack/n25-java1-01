@@ -1,0 +1,22 @@
+package br.com.senaisp.bauru.aula05;
+
+import java.util.Scanner;
+
+public class Exemplo6 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Digite um valor entre 1 e 5: ");
+		int vlr = scan.nextInt();
+		switch(vlr) {
+		case 1 -> System.out.println("Você ganhou uma caneta!");
+		case 2 -> System.out.println("Você ganhou um lapis!");
+		case 3 -> System.out.println("Você ganhou uma borracha");
+		case 4 -> System.out.println("Você ganhou um bombom");
+		case 5 -> System.out.println("Você ganhou uma bala");
+		default -> System.out.println("Opçao invalida");
+		}
+		scan.close();
+	}
+
+}

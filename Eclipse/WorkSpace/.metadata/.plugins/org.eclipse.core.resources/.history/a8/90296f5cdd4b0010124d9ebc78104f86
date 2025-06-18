@@ -1,0 +1,30 @@
+package br.com.senaisp.bauru.aula05;
+
+import java.util.Scanner;
+
+public class Exer001 {
+
+	public static void main(String[] args) {
+		
+		//Usando o scannner para ler um arquivo texto
+		 Scanner scan = new Scanner(Exer001.class.getResourceAsStream("arquivo.txt"));
+	      String linha = scan.nextLine();//Pegando cabeçalho
+	       Scanner scan1 = new Scanner(linha);
+	       scan1.useDelimiter(";");
+	       //imprimindo o cabeçalho
+	       while(scan.hasNext()) {
+	    	   System.out.print(scan1.next()+ "\t\t");// \t = tab
+	       }
+	       System.out.println();//pulando a linha
+	       scan1.close();//fechando o scanner de apoio
+	      
+	      while(scan.hasNextLine()) {
+	    	  linha = scan.nextLine();
+	    	  scan1 = new Scanner(linha);
+	    	  scan1.useDelimiter(";")
+	    	  
+	    	  
+	      }
+	}
+
+}

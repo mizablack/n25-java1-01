@@ -1,0 +1,16 @@
+package br.com.senaisp.bauru.aula05;
+
+import java.util.Scanner;
+
+public class Exenpo07 {
+
+	public static void main(String[] args) {
+     Scanner scan = new Scanner(Systen.in);
+     System.out.println("Digite S ou N:");
+     String res = scan.nextLine();
+     //Usando operador ternário
+     //Testelógico ? valor se verdade  : valor se falso
+     System.out.println("Você digitou" + (res.charAt(0)=='S'));
+	}
+
+}

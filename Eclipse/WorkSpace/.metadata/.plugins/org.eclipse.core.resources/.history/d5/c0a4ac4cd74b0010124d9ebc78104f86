@@ -1,0 +1,23 @@
+package br.com.senaisp.bauru.aula05;
+
+import java.util.Scanner;
+
+public class Exemplo9 {
+
+	public static void main(String[] args) {
+		
+     Scanner scan = new Scanner(System.in);
+     //Utilizando uma estrutura while
+     
+     String res;
+     
+    do {
+    	 System.out.println("Digite S ou N:");
+    	 res = scan.nextLine();
+    	  } while (!res.equals("S") && !res.equals("N"));
+     System.out.println("Saiu!");
+     scan.close();
+     
+	}
+
+}
