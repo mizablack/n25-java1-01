@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Exemplo10 {
 
 	public static void main(String[] args) {
-        Scanner  scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         System.out.println("Digite um número: ");
         int num = scan.nextInt();
         int res = 1;
@@ -13,6 +13,8 @@ public class Exemplo10 {
         	res *= i;//res = res * i
         }
         System.out.println("O fatorial de " + num + " é " + res);
-	}
+        scan.close();
 
-}       //break quebra o laço de repetição
+        }      
+}
+      //break quebra o laço de repetição

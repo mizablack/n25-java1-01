@@ -1,0 +1,37 @@
+package br.com.senaisp.bauru.aula05;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Exer001 {
+
+	public static void main(String[] args) {
+		//Usando o scannner para ler um arquivo texto
+		 Scanner sc = new Scanner(Exer001.class.getResourceAsStream("arquivo.txt"));
+	      String linha = sc.nextLine();//Pegando cabeçalho
+	       Scanner scan1 = new Scanner(linha);
+	       scan1.useDelimiter(";");
+	       //imprimindo o cabeçalho
+	       while(scan1.hasNext()) {
+	    	   System.out.print(scan1.next()+ "\t\t");// \t = tab
+	       }
+	       System.out.println();//pulando a linha
+	       scan1.close();//fechando o scanner de apoio
+	      
+	      while(sc.hasNextLine()) {
+	    	  linha = sc.nextLine();
+	    	  scan1 = new Scanner(linha).useLocale(Locale.US);
+	    	  scan1.useDelimiter(";");//delimitador
+	    	  //imprimindo o nome
+	    	  System.out.print(scan1.next() + "\t");//nome
+	    	  //imprimindo o idade
+	    	  System.out.print(scan1.nextInt() + "\t");//idade
+	    	  //imprimindo o salario
+	    	  System.out.println(scan1.nextDouble());// Salario
+	    	  // fechando o scanner de apoio
+	    	  scan1.close();
+	    	   
+	      }
+	}
+}
+
