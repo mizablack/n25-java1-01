@@ -1,0 +1,17 @@
+package br.com.senaisp.bauru.aula07;
+
+import java.util.Random;
+
+public class teste {
+
+	public static void main(String[] args) {
+	   Random rnd = new Random();
+       Carta1 ct = new Carta1 (rnd.nextInt(4),rnd.nextInt(13));
+       System.out.println(ct.getNaipe());
+       System.out.println(ct.getNumero());
+       System.out.println(ct.getValor());
+       System.out.println(ct.);
+       
+	}
+
+}

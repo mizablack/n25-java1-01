@@ -1,0 +1,19 @@
+package br.com.senaisp.bauru.aula07;
+
+public class Baralho {
+	private Carta1[] cartas;
+	private boolean[] cartaRetirada;
+	public Baralho() {
+		// Criar os espaço das cartas
+		cartas = new Carta1[Carta1.NAIPES.length * Carta1.NUMEROS.length];
+		cartaRetirada = new boolean [cartas.length];
+		// populando as cartas e cartaRetirada
+		for (int i=0; i<cartas.length;i++) {
+			cartas[i] = new Carta1(i/Carta1.NUMEROS.length, i% Carta1.NUMEROS.length);
+			cartaRetirada[i] = false;
+			
+		}
+		
+	}
+
+}

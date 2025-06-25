@@ -10,7 +10,7 @@ public class Carta1 {
 		private int valor;
 		
 		public Carta1(int np, int nm) {
-			setNaipe(naipe);
+			setNaipe(np);
 			setNumero(nm);
 			
 		}
@@ -51,11 +51,24 @@ public class Carta1 {
 		}
 		@Override
 		public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+			
+			
+			
+			
+		String ret = "┌─────┐\n"
+				  +  "│#   │\n"
+			   	   + "│  !  │\n"
+				+    "│   #│\n"
+				+    "└─────┘";	
+		String ap = (getNumero().equals("10") ? "" : " ");
+		ret = ret.replaceFirst("#", getNumero() + ap);
+		ret = ret.replaceAll("!", getNaipe());
+		ret = ret.replaceFirst("#", ap + getNumero());
+			
+		return ret;
 		}
 
-	}
-
-
+	
 }
+
+
